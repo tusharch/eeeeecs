@@ -405,6 +405,34 @@ if(stats) {
         }
       }
   
+    sort(cleared.begin(), cleared.end(), easier());
+    cout << "Easiest tiles cleared:" << '\n';
+    for(int i = int(cleared.size() - 1); i >
+        int(cleared.size() - statsNumber - 1);
+        --i) {
+        if(cleared[i].value == -1) {
+            cout << "TNT at [" << cleared[i].row << "," <<
+            cleared[i].col << "]" <<'\n';
+        }
+        else {
+            cout << cleared[i].value << " at ["
+            << cleared[i].row << "," <<
+            cleared[i].col << "]" <<'\n';
+        }
+    }
+    cout << "Hardest tiles cleared:" << '\n';
+    for(int i = 0; i < statsNumber; ++i) {
+        if(cleared[i].value == -1) {
+            cout << "TNT at [" << cleared[i].row << "," <<
+            cleared[i].col << "]" <<'\n';
+        }
+        else {
+            cout << cleared[i].value << " at ["
+            << cleared[i].row << "," <<
+            cleared[i].col << "]" <<'\n';
+        }
+    }
+  
 }
     
     return 0 ;
