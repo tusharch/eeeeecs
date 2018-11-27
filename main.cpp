@@ -371,7 +371,41 @@ int main(int argc, char * argv[]) {
         }
     }
     //Outputting
-    
+  cout << "Cleared " << usedcount << " tiles containing " << rubblecount <<
+" rubble and escaped." << '\n';
+
+if(stats) {
+    if(statsNumber > int(usedcount + tntstartcount)) {
+        statsNumber = int(usedcount + tntstartcount);
+    }
+    cout << "First tiles cleared:" << '\n';
+    for(int i = 0; i < statsNumber; ++i) {
+        if(cleared[i].value == -1) {
+            cout << "TNT at [" << cleared[i].row << "," <<
+            cleared[i].col << "]" <<'\n';
+        }
+        else {
+            cout << cleared[i].value << " at ["
+            << cleared[i].row << "," <<
+            cleared[i].col << "]" <<'\n';
+        }
+    }
+    cout << "Last tiles cleared:" << '\n';
+    for(int i = int(cleared.size() - 1); i >
+        int(cleared.size() - statsNumber - 1);
+        --i) {
+        if(cleared[i].value == -1) {
+            cout << "TNT at [" << cleared[i].row << "," <<
+            cleared[i].col << "]" <<'\n';
+        }
+        else {
+            cout << cleared[i].value << " at ["
+            << cleared[i].row << "," <<
+            cleared[i].col << "]" <<'\n';
+        }
+      }
+  
+}
     
     return 0 ;
     
